@@ -4,32 +4,28 @@ import 'location_page.dart';
 import 'photo_spots_page.dart';
 import 'restaurants_page.dart';
 import 'hotel_page.dart';
+import 'drawer_widget.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
+class HomePage extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Aplikasi Flutter',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        scaffoldBackgroundColor: Colors.transparent,
-      ),
-      home: HomePage(),
-    );
-  }
+  _HomePageState createState() => _HomePageState();
 }
 
-class HomePage extends StatelessWidget {
+class _HomePageState extends State<HomePage> {
+  int _currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Halaman Utama'),
+        title: Text(
+          'Halaman Utama',
+          style:
+              TextStyle(color: Colors.white), // Ubah warna teks menjadi putih
+        ),
+        backgroundColor: Colors.blue,
       ),
+      drawer: DrawerWidget(),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -83,7 +79,8 @@ class HomePage extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => RestaurantsPage()),
+                      MaterialPageRoute(
+                          builder: (context) => RestaurantsPage()),
                     );
                   },
                   color: Colors.blue,
@@ -106,6 +103,37 @@ class HomePage extends StatelessWidget {
             ),
           ),
         ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.event),
+            label: 'Tiket',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.location_on),
+            label: 'Lokasi',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.camera_alt),
+            label: 'Spot Foto',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.restaurant),
+            label: 'Restoran',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.hotel),
+            label: 'Hotel',
+          ),
+        ],
       ),
     );
   }
