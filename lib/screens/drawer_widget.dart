@@ -21,7 +21,7 @@ class DrawerWidget extends StatelessWidget {
                 ),
                 SizedBox(height: 10),
                 Text(
-                  'Nama Pengguna',
+                  'alex6969',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,

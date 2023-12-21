@@ -1,30 +1,25 @@
+// photo_spots_page.dart
 import 'package:flutter/material.dart';
-import 'package:tiket/screens/photo_spot_detail_page.dart';
+import 'package:tiket/Screens/photo_spot_detail_page.dart';
+import 'package:tiket/constants.dart';
+import 'package:tiket/models/spot_data.dart';
 
 class PhotoSpotsPage extends StatelessWidget {
-  final List<PhotoSpot> photoSpots = [
-    PhotoSpot('Pantai Indah', 'assets/images/gambar1.jpg',
-        'Pantai eksotis dengan pasir putih yang indah.'),
-    PhotoSpot('Hutan Hijau', 'assets/images/gambar1.jpg',
-        'Hutan yang sejuk dengan pepohonan hijau dan segar.'),
-    PhotoSpot('Gunung Megah', 'assets/images/gambar1.jpg',
-        'Pemandangan megah dari puncak gunung.'),
-    // Tambahkan lebih banyak tempat foto sesuai kebutuhan
-  ];
+  final List<PhotoSpot> photoSpots =
+      photoSpotsData; // Menggunakan data dari model
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tempat Foto'),
-        backgroundColor: Colors.blue, // Sesuaikan dengan warna yang diinginkan
+        backgroundColor: primaryColor,
       ),
       body: ListView.builder(
         itemCount: photoSpots.length,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              // Aksi yang diambil ketika item di-tap
               _navigateToPhotoSpotDetail(context, photoSpots[index]);
             },
             child: _buildPhotoSpotCard(photoSpots[index]),
@@ -34,7 +29,6 @@ class PhotoSpotsPage extends StatelessWidget {
     );
   }
 
-  // Widget untuk membangun kartu tempat foto
   Widget _buildPhotoSpotCard(PhotoSpot photoSpot) {
     return Card(
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
@@ -72,7 +66,6 @@ class PhotoSpotsPage extends StatelessWidget {
     );
   }
 
-  // Metode untuk menavigasi ke halaman detail tempat foto
   void _navigateToPhotoSpotDetail(BuildContext context, PhotoSpot photoSpot) {
     Navigator.push(
       context,
@@ -81,13 +74,4 @@ class PhotoSpotsPage extends StatelessWidget {
       ),
     );
   }
-}
-
-// Model data untuk tempat foto
-class PhotoSpot {
-  final String name;
-  final String imagePath;
-  final String description;
-
-  PhotoSpot(this.name, this.imagePath, this.description);
 }

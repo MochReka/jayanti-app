@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiket/constants.dart';
 
 class PhotoSpotDetailPage extends StatelessWidget {
   final photoSpot;
@@ -10,7 +11,7 @@ class PhotoSpotDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(photoSpot.name),
-        backgroundColor: Colors.blue, // Sesuaikan dengan warna yang diinginkan
+        backgroundColor: primaryColor, // Sesuaikan dengan warna yang diinginkan
       ),
       body: Padding(
         padding: EdgeInsets.all(16),
@@ -56,8 +57,8 @@ class PhotoSpotDetailPage extends StatelessWidget {
                 Navigator.pop(context);
               },
               style: ElevatedButton.styleFrom(
-                primary:
-                    Colors.blue, // Sesuaikan dengan warna yang diinginkan
+                primary: Color.fromARGB(255, 54, 184,
+                    207), // Sesuaikan dengan warna yang diinginkan
                 onPrimary: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8),

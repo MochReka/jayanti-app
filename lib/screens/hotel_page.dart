@@ -1,56 +1,20 @@
 // screens/hotel_page.dart
 import 'package:flutter/material.dart';
+import 'package:tiket/constants.dart';
 import 'package:tiket/models/hotel_data.dart';
 
 class HotelPage extends StatelessWidget {
-  final List<Hotel> hotels = [
-    Hotel(
-      name: 'Hotel A',
-      description:
-          'Deskripsi Hotel A. Fasilitas lengkap dengan pemandangan indah.',
-      imagePath: 'assets/images/hotel1.jpg',
-      rating: 4.5,
-      location: 'Kota A',
-      price: 150.0,
-    ),
-    Hotel(
-      name: 'Hotel B',
-      description:
-          'Deskripsi Hotel B. Pengalaman menginap yang nyaman dan mewah.',
-      imagePath: 'assets/images/hotel1.jpg',
-      rating: 4.0,
-      location: 'Kota B',
-      price: 120.0,
-    ),
-    Hotel(
-      name: 'Hotel C',
-      description:
-          'Deskripsi Hotel C. Pengalaman menginap yang istimewa.',
-      imagePath: 'assets/images/hotel1.jpg',
-      rating: 4.8,
-      location: 'Kota C',
-      price: 180.0,
-    ),
-    // Tambahkan hotel lainnya sesuai kebutuhan
-  ];
-
-  List<Hotel> _getBestHotels() {
-    // Logika pemfilteran untuk mendapatkan hotel terbaik
-    List<Hotel> bestHotels = hotels.where((hotel) => hotel.rating >= 4.5).toList();
-    return bestHotels;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Daftar Hotel'),
-        backgroundColor: Colors.blue,
+        backgroundColor: primaryColor,
       ),
       body: ListView.builder(
-        itemCount: _getBestHotels().length,
+        itemCount: hotels.length,
         itemBuilder: (context, index) {
-          return HotelCard(hotel: _getBestHotels()[index]);
+          return HotelCard(hotel: hotels[index]);
         },
       ),
     );
@@ -126,7 +90,8 @@ class HotelCard extends StatelessWidget {
                         // Misalnya, membuka halaman pemesanan atau memberikan notifikasi
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.blue,
+                        primary:
+                            primaryColor, // Sesuaikan dengan warna halaman tiket
                         onPrimary: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
