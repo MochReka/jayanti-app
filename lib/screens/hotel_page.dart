@@ -23,16 +23,22 @@ class HotelPage extends StatelessWidget {
       price: 120.0,
     ),
     Hotel(
-      name: 'Hotel B',
+      name: 'Hotel C',
       description:
-          'Deskripsi Hotel B. Pengalaman menginap yang nyaman dan mewah.',
+          'Deskripsi Hotel C. Pengalaman menginap yang istimewa.',
       imagePath: 'assets/images/hotel1.jpg',
-      rating: 4.0,
-      location: 'Kota B',
-      price: 120.0,
+      rating: 4.8,
+      location: 'Kota C',
+      price: 180.0,
     ),
     // Tambahkan hotel lainnya sesuai kebutuhan
   ];
+
+  List<Hotel> _getBestHotels() {
+    // Logika pemfilteran untuk mendapatkan hotel terbaik
+    List<Hotel> bestHotels = hotels.where((hotel) => hotel.rating >= 4.5).toList();
+    return bestHotels;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,9 +48,9 @@ class HotelPage extends StatelessWidget {
         backgroundColor: Colors.blue,
       ),
       body: ListView.builder(
-        itemCount: hotels.length,
+        itemCount: _getBestHotels().length,
         itemBuilder: (context, index) {
-          return HotelCard(hotel: hotels[index]);
+          return HotelCard(hotel: _getBestHotels()[index]);
         },
       ),
     );
@@ -120,8 +126,7 @@ class HotelCard extends StatelessWidget {
                         // Misalnya, membuka halaman pemesanan atau memberikan notifikasi
                       },
                       style: ElevatedButton.styleFrom(
-                        primary:
-                            Colors.blue, // Sesuaikan dengan warna halaman tiket
+                        primary: Colors.blue,
                         onPrimary: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
