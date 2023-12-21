@@ -6,7 +6,7 @@ class TicketPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tiket Pantai'),
+        title: Text('Tiket Pantai', style: TextStyle(color: Colors.white),),
         backgroundColor: Colors.blue,
       ),
       body: Padding(

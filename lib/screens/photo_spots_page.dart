@@ -12,7 +12,7 @@ class PhotoSpotsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tempat Foto'),
+        title: Text('Tempat Foto', style: TextStyle(color: Colors.white),),
         backgroundColor: primaryColor,
       ),
       body: ListView.builder(

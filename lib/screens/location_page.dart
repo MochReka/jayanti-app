@@ -7,8 +7,10 @@ class LocationPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Halaman Lokasi'),
+        title: Text('Halaman Lokasi',
+        style: TextStyle(color: Colors.white),),
         backgroundColor: primaryColor,
+        
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

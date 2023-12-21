@@ -18,7 +18,7 @@ class Hotel {
 
 final List<Hotel> hotels = [
   Hotel(
-    name: 'Hotel A',
+    name: 'Hotel Bintang Sobo',
     description:
         'Deskripsi Hotel A. Fasilitas lengkap dengan pemandangan indah.',
     imagePath: 'images/hotel1.jpg',
@@ -27,7 +27,7 @@ final List<Hotel> hotels = [
     price: 150.0,
   ),
   Hotel(
-    name: 'Hotel B',
+    name: 'Hotel Jaya Mukti',
     description:
         'Deskripsi Hotel B. Pengalaman menginap yang nyaman dan mewah.',
     imagePath: 'images/hotel1.jpg',
@@ -36,7 +36,7 @@ final List<Hotel> hotels = [
     price: 120.0,
   ),
   Hotel(
-    name: 'Hotel C',
+    name: 'Hotel Prima',
     description:
         'Deskripsi Hotel B. Pengalaman menginap yang nyaman dan mewah.',
     imagePath: 'images/hotel1.jpg',
@@ -45,7 +45,7 @@ final List<Hotel> hotels = [
     price: 120.0,
   ),
   Hotel(
-    name: 'Hotel D',
+    name: 'Hotel Dashboard',
     description:
         'Deskripsi Hotel B. Pengalaman menginap yang nyaman dan mewah.',
     imagePath: 'images/hotel1.jpg',

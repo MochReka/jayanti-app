@@ -11,7 +11,8 @@ class RestaurantsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Restoran'),
+        title: Text('Restoran',
+        style: TextStyle(color: Colors.white),),
         backgroundColor: primaryColor,
       ),
       body: Padding(

@@ -10,7 +10,7 @@ class PhotoSpotDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(photoSpot.name),
+        title: Text(photoSpot.name, style: TextStyle(color: Colors.white),),
         backgroundColor: primaryColor, // Sesuaikan dengan warna yang diinginkan
       ),
       body: Padding(

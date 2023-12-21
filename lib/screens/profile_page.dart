@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 
 class ProfilePage extends StatelessWidget {
-  final String name = 'John Doe';
-  final String email = 'john.doe@example.com';
+  final String name = 'Reka Tea';
+  final String email = 'Reka.doe@example.com';
   final String bio =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam varius ut felis vel scelerisque.';
 

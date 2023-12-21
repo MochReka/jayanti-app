@@ -8,7 +8,8 @@ class HotelPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Daftar Hotel'),
+        title: Text('Daftar Hotel',
+        style: TextStyle(color: Colors.white),),
         backgroundColor: primaryColor,
       ),
       body: ListView.builder(

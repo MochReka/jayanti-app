@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiket/screens/dashboard_screen.dart';
 
 class NotificationPage extends StatelessWidget {
   @override
@@ -6,6 +7,17 @@ class NotificationPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Notification'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                  builder: (context) => HomePage(),
+                ),
+             ); // Kembali ke halaman sebelumnya
+          },
+        ),
       ),
       body: Center(
         child: Padding(

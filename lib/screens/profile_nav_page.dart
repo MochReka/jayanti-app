@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiket/screens/dashboard_screen.dart';
 
 class ProfileNavPage extends StatelessWidget {
   @override
@@ -6,6 +7,17 @@ class ProfileNavPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Profile'),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                  builder: (context) => HomePage(),
+                ),
+             ); // Kembali ke halaman sebelumnya
+          },
+        ),
       ),
       body: Center(
         child: Padding(
@@ -16,7 +28,7 @@ class ProfileNavPage extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage('assets/images/profile_image.jpg'),
+                backgroundImage: AssetImage('images/user.png'),
               ),
               SizedBox(height: 16),
               Text(

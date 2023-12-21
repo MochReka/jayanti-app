@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiket/screens/dashboard_screen.dart';
 
 class TicketInfoPage extends StatelessWidget {
   @override
@@ -9,7 +10,12 @@ class TicketInfoPage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.of(context).pop(); // Kembali ke halaman sebelumnya
+            Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                  builder: (context) => HomePage(),
+                ),
+             ); // Kembali ke halaman sebelumnya
           },
         ),
       ),
