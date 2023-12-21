@@ -24,7 +24,7 @@ class WelcomeButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: color!,
           borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(15),
+            topLeft: Radius.circular(0),
             topRight: Radius.circular(0)
           ),
         ),

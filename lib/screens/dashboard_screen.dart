@@ -6,6 +6,10 @@ import 'restaurants_page.dart';
 import 'hotel_page.dart';
 import 'drawer_widget.dart';
 import 'homebutton.dart';
+import 'notification_page.dart';
+import 'profile_nav_page.dart';
+import 'history_page.dart';
+import 'ticket_info_page.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -124,29 +128,22 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       SizedBox(height: 16),
                       RestaurantCard(
-                        name: 'Hotel Mang Lili',
+                        name: 'Trending Hotel',
                         cuisine: 'Penginapan',
                         rating: 4.5,
                         imagePath: 'images/hotel1.jpg',
                       ),
                       SizedBox(height: 16),
                       RestaurantCard(
-                        name: 'Sushi Sensation',
-                        cuisine: 'restoran',
+                        name: 'Trending Restoran',
+                        cuisine: 'Restoran',
                         rating: 4.7,
                         imagePath: 'images/resto1.jpg',
                       ),
                       SizedBox(height: 16),
                       RestaurantCard(
-                        name: 'Love',
+                        name: 'Tranding Spot Foto',
                         cuisine: 'Spot Foto',
-                        rating: 4.7,
-                        imagePath: 'images/spot1.jpg',
-                      ),
-                      SizedBox(height: 16),
-                      RestaurantCard(
-                        name: 'Sushi Sensation',
-                        cuisine: 'Masakan Jepang',
                         rating: 4.7,
                         imagePath: 'images/gambar1.jpg',
                       ),
@@ -169,27 +166,50 @@ class _HomePageState extends State<HomePage> {
           setState(() {
             _currentIndex = index;
           });
+          switch (index) {
+            case 0:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => HistoryPage()),
+              );
+              break;
+            case 1:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationPage()),
+              );
+              break;
+            case 2:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => TicketInfoPage()),
+              );
+              break;
+            case 3:
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => ProfileNavPage()),
+              );
+              break;
+          }
         },
+
         items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.history),
+            label: 'History',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Notification',
+          ),
           BottomNavigationBarItem(
             icon: Icon(Icons.confirmation_number),
             label: 'Tiket',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.location_on),
-            label: 'Lokasi',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.camera),
-            label: 'Spot Foto',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.restaurant),
-            label: 'Restoran',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.hotel),
-            label: 'Hotel',
+            icon: Icon(Icons.account_circle),
+            label: 'Profile',
           ),
         ],
       ),

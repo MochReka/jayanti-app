@@ -22,34 +22,28 @@ List<Restaurant> getRestaurants() {
       imagePath: 'images/resto1.jpg',
     ),
     Restaurant(
-      name: 'Sushi Sensation',
+      name: 'Restoran Abah Jamal',
       cuisine: 'Masakan Jepang',
       rating: 4.7,
       imagePath: 'images/resto2.jpg',
     ),
     Restaurant(
-      name: 'Sushi Sensation',
+      name: 'Rumah Makan Kang Iwan',
       cuisine: 'Masakan Jepang',
       rating: 4.7,
       imagePath: 'images/resto3.jpg',
     ),
     Restaurant(
-      name: 'Sushi Sensation',
+      name: 'Restoran Bintang Sobo',
       cuisine: 'Masakan Jepang',
       rating: 4.7,
       imagePath: 'images/resto1.jpg',
     ),
     Restaurant(
-      name: 'Warung Makan Bahagia',
+      name: 'Warung Kakang Reka',
       cuisine: 'Masakan Nusantara',
       rating: 4.5,
       imagePath: 'images/resto1.jpg',
-    ),
-    Restaurant(
-      name: 'Sushi Sensation',
-      cuisine: 'Masakan Jepang',
-      rating: 4.7,
-      imagePath: 'images/resto2.jpg',
     ),
     // Tambahkan lebih banyak restoran sesuai kebutuhan
   ];

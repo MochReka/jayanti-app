@@ -1,41 +1,35 @@
 import 'package:flutter/material.dart';
-import 'package:tiket/screens/booking_page.dart';
-import 'package:tiket/constants.dart';
-import 'package:tiket/helper/month.dart';
+import 'booking_page.dart';
 
-
-class TicketPage extends StatefulWidget {
-  @override
-  _TicketPageState createState() => _TicketPageState();
-}
-
-class _TicketPageState extends State<TicketPage> {
-  DateTime startDate = DateTime.now();
-  DateTime endDate = DateTime.now().add(Duration(days: 1));
-
+class TicketPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Tiket Pantai'),
-        backgroundColor: primaryColor,
+        backgroundColor: Colors.blue,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            // Gambar Pantai
             Container(
               height: 200,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('images/welcome.jpg'),
+                  image: AssetImage(
+                      'assets/images/gambar1.jpg'), // Sesuaikan dengan path gambar Anda
                   fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.circular(10),
               ),
             ),
+
             SizedBox(height: 20),
+
+            // Informasi Tiket
             Container(
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -58,156 +52,29 @@ class _TicketPageState extends State<TicketPage> {
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Harga',
-                        style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-                      ),
-                      Text(
-                        'Rp 10.000',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Lokasi',
-                        style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-                      ),
-                      Text(
-                        'Pantai Jayanti',
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Dari',
-                        style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '${startDate.day} ${_getMonthName(startDate.month)} ${startDate.year}',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(width: 10),
-                          TextButton(
-                            onPressed: () async {
-                              final pickedStartDate = await showDatePicker(
-                                context: context,
-                                builder: (BuildContext context, Widget? child) {
-                                  return Theme(
-                                    data: ThemeData.light(),
-                                    child: child!,
-                                  );
-                                },
-                                initialDate: startDate,
-                                firstDate: DateTime.now(),
-                                lastDate: DateTime(DateTime.now().year + 5),
-                              );
-
-                              if (pickedStartDate != null &&
-                                  pickedStartDate != startDate) {
-                                setState(() {
-                                  startDate = pickedStartDate;
-                                });
-                              }
-                            },
-                            child: Text(
-                              'Ubah',
-                              style: TextStyle(
-                                color: Colors.blue,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Sampai',
-                        style: TextStyle(fontSize: 16, color: Colors.grey[700]),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            '${endDate.day} ${_getMonthName(endDate.month)} ${endDate.year}',
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(width: 10),
-                          TextButton(
-                            onPressed: () async {
-                              final pickedEndDate = await showDatePicker(
-                                context: context,
-                                builder: (BuildContext context, Widget? child) {
-                                  return Theme(
-                                    data: ThemeData.light(),
-                                    child: child!,
-                                  );
-                                },
-                                initialDate: endDate,
-                                firstDate: startDate,
-                                lastDate: DateTime(DateTime.now().year + 5),
-                              );
-
-                              if (pickedEndDate != null &&
-                                  pickedEndDate != endDate) {
-                                setState(() {
-                                  endDate = pickedEndDate;
-                                });
-                              }
-                            },
-                            child: Text(
-                              'Ubah',
-                              style: TextStyle(
-                                color: Colors.blue,
-                                decoration: TextDecoration.underline,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                  TicketInfo('Harga', 'Rp 50.000'),
+                  TicketInfo('Lokasi', 'Pantai Indah'),
+                  TicketInfo('Tanggal', '12 December 2023'),
                 ],
               ),
             ),
+
             SizedBox(height: 20),
+
+            // Tombol Pemesanan
             Container(
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
+                  // Aksi yang diambil ketika tombol ditekan
+                  // Navigasi ke halaman pemesanan
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                      builder: (context) => BookingPage(
-                        startDate: startDate,
-                        endDate: endDate,
-                      ),
-                    ),
+                    MaterialPageRoute(builder: (context) => BookingPage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: primaryColor,
+                  primary: Colors.blue,
                   onPrimary: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
@@ -227,8 +94,31 @@ class _TicketPageState extends State<TicketPage> {
       ),
     );
   }
+}
 
-  String _getMonthName(int month) {
-    return getMonthName(month);
+class TicketInfo extends StatelessWidget {
+  final String label;
+  final String value;
+
+  TicketInfo(this.label, this.value);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            label,
+            style: TextStyle(fontSize: 16, color: Colors.grey[700]),
+          ),
+          Text(
+            value,
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
   }
 }
